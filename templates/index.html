@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+ 
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="header">
+        <h2>
+            SI 507 Final Project
+        </h2>
+    </div>
+    <div id="chart_container">
+        <h2>Different Platform Game Count Percentage</h2>
+        <div id="pie_chart" class="pie_chart">
+        </div>
+    </div>
+    <div id="chart_container">
+        <h2>Platform Top Games Ratings</h2>
+        <div id="bar_chart" class="bar_chart">
+        </div>
+    </div>
+    <div id="top_platform">
+        <h2>Platform Top Rating Game</h2>
+        <form action="/#top_platform" method="POST" id="platform_form">    
+            <select name="platform" form="platform_form">
+                {% for i in platform_top_games %}
+                    <option value="{{i.platform}}">{{i.platform}}</option>
+                {% endfor %}
+            </select>
+            <input id="prodId" name="prodId" type="hidden" value="form_platform">
+            <input type="submit" value="Submit"/>
+        </form>
+            <table>
+                <tr>
+                    <th> Game Name </th>
+                    <th> Released Date </th>
+                    <th> Description </th>
+                    <th> Platform Name</th>
+                </tr>
+                <tr>
+                    <td>{{top_platform_game_result.name}}</td>
+                    <td>{{top_platform_game_result.date}}</td>
+                    <td>{{top_platform_game_result.desc}}</td>
+                    <td>{{top_platform_game_result.platform}}</td>
+                </tr>
+            </table>
+    </div>
+    
+    <div id="game_detail">
+        <form action="/#game_detail" method="POST">    
+            Video Game: <input type="text" name="gamename"/> <br/>
+            <input id="prodId" name="prodId" type="hidden" value="form_game">
+            <input type="submit" value="Submit"/>
+        </form>
+            <table>
+                <tr>
+                    <th> Game Name </th>
+                    <th> Released Date </th>
+                    <th> Description </th>
+                    <th> Platform Name</th>
+                </tr>
+                {%for i in game_detail_result%}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.desc}}</td>
+                    <td>{{i.platform}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+    
+ 
+</body>
+ 
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ 
+    <script type="text/javascript">
+         
+        var pie_graphs = {{pie_graphJSON | safe}};
+        var bar_graphs = {{bar_graphJSON | safe}};
+        
+        Plotly.plot('pie_chart',pie_graphs,{});  
+        Plotly.plot('bar_chart', bar_graphs, {})      
+ 
+    </script>
+ 
+</html>

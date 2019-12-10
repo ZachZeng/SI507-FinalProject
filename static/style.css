@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+* {
+    box-sizing: border-box;
+    overflow: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html, body {
+    overflow: auto;
+}
+
+html {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.header{
+    text-align: center;
+    background-color:#604C8D;
+    height: 10rem;
+    line-height: 70px;
+    margin: 0;
+    color: white;
+    font-size: 2rem;
+}
+#chart_container{
+    margin-top: 30px;
+    text-align: center;
+    height: max-content;
+}
+
+#pie_chart {
+    height: 50%;
+}
+
+#top_platform {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+table th,td {
+    padding: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#game_detail {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
