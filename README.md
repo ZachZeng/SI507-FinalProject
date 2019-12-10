@@ -30,10 +30,10 @@
 
 ## Class
 Game
-	name
-	release date
-	description
-	platform
+- name
+- release date
+- description
+- platform
 
 ## List
 	game_detail_result
