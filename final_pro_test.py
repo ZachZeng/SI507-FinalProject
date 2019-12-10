@@ -64,14 +64,14 @@ class TestModel(unittest.TestCase):
 
     def test_get_platform_top(self):
         result = get_platform_top()
-        self.assertEqual(result[0][0],'The Witcher 3: Wild Hunt')
+        self.assertEqual(result[0].name,'The Witcher 3: Wild Hunt')
         self.assertEqual(len(result),49)
     
     def test_get_game_detail(self):
         result = get_game_detail('The Witcher 3: Wild Hunt')
         self.assertEqual(len(result),4)
         result_ = get_game_detail('Minecraft')
-        self.assertEqual(result_[0][3],'Nintendo 3DS')
+        self.assertEqual(result_[0].platform,'Nintendo 3DS')
 
         
 if __name__ == "__main__":
